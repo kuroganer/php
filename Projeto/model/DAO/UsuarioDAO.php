@@ -54,8 +54,66 @@
             } catch (PDOException $exe) {
                 echo "ERRO! ".$exe-> getMessage();
              }
+            }
+        public function buscarUsuarioPorId($id){
+            try {
+                $sql = "SELECT * FROM usuario WHERE id={$id}";
+                $stmt=$this->pdo->prepare($sql);
+                $stmt->execute();
+                $retorno = $stmt->fetch(PDO::FETCH_ASSOC);
+                return $retorno;
+
+
+               
+            } catch (PDOException $exe) {
+                echo "ERRO! ".$exe-> getMessage();
+             }
+        
+        }
+        public function alterarUsuario(UsuarioDTO $usuarioDTO){
+            try {
+                $sql = "UPDATE usuario SET nome = ?,  
+                                           idade = ?,  
+                                           email = ?,     
+                                           senha = ?
+                                           WHERE id=?;";
+            $stmt=$this->pdo->prepare($sql);
+            $id    = $usuarioDTO->getID();                                    
+            $nome  = $usuarioDTO->getNome();                                    
+            $idade = $usuarioDTO->getIdade();                                      
+            $email = $usuarioDTO->getEmail();                                       
+            $senha = $usuarioDTO->getSenha();    
+
+
+          
+            $stmt->bindValue(1,$nome);   
+            $stmt->bindValue(2,$idade);   
+            $stmt->bindValue(3,$email);   
+            $stmt->bindValue(4,$senha);   
+            $stmt->bindValue(5,$id);   
+           $retorno = $stmt->execute();
+           return $retorno;
             
-         }
+                                                
+            } catch (PDOException $exe) {
+                echo "ERRO! ".$exe-> getMessage();
+             }
+
+        }
+        public function validarLogin($email,$senha){
+            try {
+               $sql = "SELECT * 
+                    FROM usuario
+                        WHERE email='{$email}' AND senha='{$senha}';";
+                $stmt=$this->pdo->prepare($sql); 
+                $stmt->execute();
+                $retorno =  $stmt->fetch(PDO::FETCH_ASSOC);
+                return $retorno;
+
+            } catch (PDOException $exe) {
+                echo "ERRO! ".$exe-> getMessage();
+             }
+        }
     }
 
 ?>

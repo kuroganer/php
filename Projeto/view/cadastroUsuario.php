@@ -20,8 +20,9 @@
         <input type="email" name="email" ><br><br>
         <label for="senha">Senha:</label>
         <input type="password" name="senha" ><br><br>
-        <input type="submit" value="Cadastrar">
+        <input type="submit" value="Cadastrar"><br><br>
     </form>
+    <a href="admin.php"><button>Voltar</button></a>
     </center>
     </fieldset>
 </body>

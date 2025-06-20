@@ -21,13 +21,13 @@ $sucesso = $usuarioDAO->cadastroUsuario($usuarioDTO);
 if($sucesso){
     echo "<script>
     alert('Usuario Cadastrado com sucesso');
-    window.location.href='../view/cadastroUsuarios.php'
+    window.location.href='../view/cadastroUsuario.php'
     </script>";
 }
 else {
     echo "<script>
     alert('Erro! Dados não cadastrados');
-    window.location.href='../view/cadastroUsuarios.php'
+    window.location.href='../view/cadastroUsuario.php'
     </script>";
 }
 

@@ -34,17 +34,20 @@ echo "</pre>";*/
                 <td><?php echo $info['idade']; ?></td>
                 <td><?php echo $info['email']; ?></td>
                 <td>
-                <a href="../control/excluirUsuarioControl.php?id=<?php echo $info['id'];?>">
-                <button>Excluir</button>
-                </a>
+                    <a href="alterarUsuario.php?id=<?php echo $info['id'];?>">
+                        <button style="background-color: lightblue">Alterar</button>
+                    </a>
+               </td>
+                <td>
+                    <a href="../control/excluirUsuarioControl.php?id=<?php echo $info['id'];?>">
+                    <button style="background-color: red">Excluir</button>
+                    </a>
                 </td>
-               
-                    <td><button>Alterar</button></td>
-                </a>
             </tr>
       <?php } ?>
 
         </table>
+        <a href="admin.php"><button>Voltar</button></a>
         </center>
     </fieldset>
     
